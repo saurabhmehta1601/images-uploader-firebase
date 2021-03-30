@@ -38,6 +38,16 @@ h6 {
   cursor:pointer;
 }
 
+.upload-btn{
+  font-size:24px;
+  padding: 5px 12px ;
+  margin: 2rem auto 0 auto;
+  border-radius:8px;
+}
+
+button:focus,button:active{
+  outline:none ;
+}
 
 .status-bar {
   height: 5px;

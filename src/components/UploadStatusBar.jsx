@@ -1,9 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 
 const UploadStatusBar = () => {
-    const [progress, setProgress] = useState(100) 
-
-    let IntervalRef  = useRef(null); 
+   const progress = 70 ;
 
     return (
         <div className="status-bar" style={{width:progress+"%"}}>
