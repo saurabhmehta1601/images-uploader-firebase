@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import ProgressContext from "../context/ProgressContext";
+import AppContext from "../context/AppContext";
 import { storage, db } from "../firebase/config";
 
 const UploadForm = () => {
@@ -7,7 +7,7 @@ const UploadForm = () => {
   
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
-  const {setProgress} =useContext(ProgressContext) 
+  const {setProgress} =useContext(AppContext) 
 
   const handleChange = (e) => {
     const f = e.target.files[0];

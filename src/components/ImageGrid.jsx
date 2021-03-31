@@ -1,22 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { db } from "../firebase/config";
 import Grid from "./Grid";
+import useRealtimeDB from "../hooks/useRealtimeDB"
+import { useContext } from "react";
+import AppContext from "../context/AppContext";
+
+// real time database update
+
 
 const ImageGrid = () => {
- 
-    const [images, setImages] = useState([])
-
-  useEffect(() => {
-      db
-      .collection("images")
-      .get()
-      .then( snapshot => {
-          const data= snapshot.docs.map((doc) => doc.data()) 
-         setImages(data)
-        });
-    // setImages(data)
-  }, []);
-
+  useRealtimeDB()
+  const {images} =useContext(AppContext)
   return (
     <>
       <h2 className="heading">Image Gallery</h2>

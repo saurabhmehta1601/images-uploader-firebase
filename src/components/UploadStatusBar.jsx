@@ -1,6 +1,6 @@
 import React from 'react'
 import { useContext } from 'react'
-import ProgressContext from '../context/ProgressContext'
+import ProgressContext from '../context/AppContext'
 
 const UploadStatusBar = () => {
     const {progress} =useContext(ProgressContext)

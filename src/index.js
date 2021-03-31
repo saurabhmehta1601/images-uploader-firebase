@@ -1,13 +1,13 @@
 import './index.css';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { ProgressProvider } from './context/ProgressContext';
+import { AppContextProvider } from './context/AppContext';
 
 
 ReactDOM.render(
-  <ProgressProvider  >
+  <AppContextProvider  >
     <App />
-  </ProgressProvider>,
+  </AppContextProvider>,
   document.getElementById('root')
 );
 
