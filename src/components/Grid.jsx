@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import Image from "./Image"
 
 const Grid = ({images}) => {
     console.log("images passed are ",images);
-    
+
     return (
         <div className="grid">
-            {images.map(image=><><img src={image.imageURL} alt="grid" /> <p>
-                    {image.name}
-                    </p> </>)}
+            {images.map(imageData=><Image data={imageData} ></Image>)}
         </div>  
     )
 }

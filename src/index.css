@@ -18,11 +18,11 @@ h5,
 h6 {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-h1{
+h1 {
   font-size: 2.7rem;
 }
-h2{
-  font-size:2rem;
+h2 {
+  font-size: 2rem;
 }
 .heading {
   text-align: center;
@@ -31,26 +31,27 @@ h2{
   word-spacing: 10px;
 }
 
-#upload-form{
-  display:flex ;
-  padding: 2em 0 ;
+#upload-form {
+  display: flex;
+  padding: 2em 0;
   flex-direction: column;
   align-items: center;
 }
 
 .upload-icon {
-  cursor:pointer;
+  cursor: pointer;
 }
 
-.upload-btn{
-  font-size:24px;
-  padding: 5px 12px ;
+.upload-btn {
+  font-size: 24px;
+  padding: 5px 12px;
   margin: 2rem auto 0 auto;
-  border-radius:8px;
+  border-radius: 8px;
 }
 
-button:focus,button:active{
-  outline:none ;
+button:focus,
+button:active {
+  outline: none;
 }
 
 .status-bar {
@@ -60,3 +61,17 @@ button:focus,button:active{
   width: 100%;
   margin-top: 2rem;
 }
+
+img {
+  max-width: 400px;
+}
+.img-container{
+  text-align: center;
+  padding: 5px 12px;
+}
+.grid{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
