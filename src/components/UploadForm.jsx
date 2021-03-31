@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import ProgressContext from "../context/ProgressContext";
 import { storage, db } from "../firebase/config";
 
 const UploadForm = () => {
   const allowedExtentions = ["image/jpg", "image/png", "image/jpeg"];
-
+  
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
+  const {setProgress} =useContext(ProgressContext) 
 
   const handleChange = (e) => {
     const f = e.target.files[0];
@@ -29,13 +31,15 @@ const UploadForm = () => {
     uploadTask.on(
       "state_changed",
       (snapShot) => {
-        console.log(snapShot);
+        let percentageUpload= Math.round((snapShot.bytesTransferred/snapShot.totalBytes)*100)
+        setProgress(percentageUpload)
       },
       (err) => {
         console.log(err);
         setError(err);
       },
       () => {
+        setProgress(0)
         //   upon successfully uploading to store get downloadlink to store in firestore
         storage
           .ref("images")

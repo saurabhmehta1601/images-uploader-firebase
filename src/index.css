@@ -3,6 +3,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   background-color: rgb(98, 190, 125);
+  font-family: Tahoma;
 }
 
 .App {
@@ -55,11 +56,16 @@ button:active {
 }
 
 .status-bar {
-  height: 5px;
+  height:5px;
   /* background-color: rgb(29, 134, 127); */
-  background-color: rgb(173, 92, 96);
+  background-color: rgb(185, 113, 117);
   width: 100%;
   margin-top: 2rem;
+}
+
+.progress-indicator {
+  text-align: center;
+  color:rgb(116, 9, 9) ;  
 }
 
 img {
