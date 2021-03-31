@@ -15,6 +15,7 @@ const firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
 
   const storage=firebase.storage()
-  const firestore = firebase.firestore()
+  const db = firebase.firestore()
+  db.settings({ timestampsInSnapshots : true})
 
-  export {firebase,storage,firestore}
+  export {firebase,storage,db}

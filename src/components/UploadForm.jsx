@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { storage, firestore } from "../firebase/config";
+import { storage, db } from "../firebase/config";
 
 const UploadForm = () => {
   const allowedExtentions = ["image/jpg", "image/png", "image/jpeg"];
 
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
-  const [url, setUrl] = useState(null);
 
   const handleChange = (e) => {
     const f = e.target.files[0];
@@ -22,7 +21,7 @@ const UploadForm = () => {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit =  (e) => {
     e.preventDefault();
 
     // uploading to firebase storage
@@ -37,25 +36,25 @@ const UploadForm = () => {
         setError(err);
       },
       () => {
+        //   upon successfully uploading to store get downloadlink to store in firestore
         storage
           .ref("images")
           .child(file.name)
           .getDownloadURL()
           .then((fireBaseUrl) => {
-            setUrl(fireBaseUrl);
-          });
+            // add document to firestore with the download link we get after uploading image to store
+            db
+            .collection("images")
+            .add({
+              imageURL: fireBaseUrl,
+              name: file.name,
+            })
+            .then((docRef) => console.log("Document written with id ", docRef))
+            .catch((e) => console.log(e));
 
-        firestore
-          .collection("images")
-          .add({
-            imageURL: url,
-            name: file.name,
-          })
-          .then((docRef) => console.log("Document written with id ", docRef))
-          .catch((e) => console.log(e));
+          });
       }
     );
-    setUrl(null)
     setFile(null);
   };
 

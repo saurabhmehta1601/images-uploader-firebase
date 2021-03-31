@@ -1,14 +1,16 @@
 import React from 'react'
 
-const UploadStatusBar = () => {
-   const progress = 70 ;
+const UploadStatusBar = ( {progress} ) => {
+
+
+    
+
 
     return (
         <div className="status-bar" style={{width:progress+"%"}}>
-            {progress} %
-            </div>
+            
+        </div>
        
     )
 }
-
 export default UploadStatusBar

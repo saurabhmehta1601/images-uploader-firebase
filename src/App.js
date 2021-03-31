@@ -1,6 +1,7 @@
 import UploadForm from './components/UploadForm'
 import UploadStatusBar from './components/UploadStatusBar'
 import Header from './components/Header'
+import ImageGrid from './components/ImageGrid'
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Header />
       <UploadForm />
       <UploadStatusBar />
+      <ImageGrid />
      </div>
   );
 }
